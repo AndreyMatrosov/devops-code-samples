@@ -39,3 +39,16 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.de
 # Install gitlab
 sudo EXTERNAL_URL="http://192.168.50.10" apt-get install gitlab-ce
 ```
+ use SSHFS to mount a remote file system to your local machine. sshfs is a tool for mounting filesystems over SSH
+
+Step 1: Install
+sudo apt-get install sshfs
+
+Step 2: Setup folders
+
+Step 3: Run sshfs
+sudo sshfs ubuntu@ec2-ip-address:/home/ubuntu/aws_share /home/yourname/local_folder -o IdentityFile=~/your-pemfile.pem -o allow_other
+
+Step 4: (optional) Unmount
+sudo umount -f /home/yourname/local_folder
+```
