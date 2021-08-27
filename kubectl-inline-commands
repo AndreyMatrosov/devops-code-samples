@@ -74,3 +74,9 @@ kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=cl
 
 #Create a static pod
 kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml
+
+#выводит список интерфейсов пода
+nsenter -t $(docker inspect --format '{{.State.Pid}}' $(docker ps -q | head -n 1) -n ip addr
+
+#вывода списка всех отслеживаемых соединений
+conntrack -L
