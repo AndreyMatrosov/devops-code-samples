@@ -1,0 +1,1 @@
+docker images --format "{{.ID}} {{.Repository}} {{.CreatedSince}}" | grep muse2 | grep months | awk '{ print $1 }' | xargs docker rmi
